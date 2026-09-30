@@ -38,6 +38,11 @@ Welcome to the documentation hub for **Labour Manager Pro** (`e:/sonu`). This di
    * **Attendance Matrix Excel (.xlsx):** Full 1–31 date columns with P/HD/A attendance, OT hours, rates, and wages.
    * **Client PDF Bills:** Clean formatted PDF with `Rs.` (no symbol errors) and aligned tables.
 6. **Date Standard:** All dates display and export in standard **`DD/MM/YYYY`** format.
+7. **WhatsApp-Style Cloud Backup (Default):**
+   * Connect your Gmail account for 1-click Google Drive backups.
+   * Auto-backup on daily save ensures your data can be restored with 1 click after reinstalling or changing phones.
+   * Local file `.json` export remains available anytime offline.
+
 
 ---
 

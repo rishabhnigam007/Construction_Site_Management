@@ -111,6 +111,16 @@ All calculations in [`src/utils/wageCalculator.ts`](file:///e:/sonu/src/utils/wa
 
 ---
 
+### Suite 7: Google Drive (Gmail Account) Cloud Backup & Restore
+1. Open the **Settings (सेटिंग्स)** tab.
+2. Verify **Google Drive (Gmail)** tab is active by default.
+3. Click **Connect Gmail Account**, enter your Gmail address (e.g. `thekedaar.official@gmail.com`), and click **Connect & Backup**.
+4. Verify the account card shows connected email, green badge, and last backup timestamp/size.
+5. Click **Back Up Now to Google Drive** — verify success toast appears.
+6. Click **Restore from Google Drive** — confirm dialog and verify instant 1-click cloud restoration.
+
+---
+
 ## 3. Build & Quality Verification Commands
 
 ```bash
@@ -120,3 +130,4 @@ npm run build
 # Run linter
 npm run lint
 ```
+

@@ -87,9 +87,15 @@ It solves the everyday problems of managing site workers:
 
 ---
 
-### 2.6. Bilingual Language Support & Offline Backup
+### 2.6. Bilingual Support & WhatsApp-Style Cloud Backup
 - **English & हिन्दी (Hindi):** Toggle anytime from the top bar. All terms use real construction vernacular (*मिस्त्री, मजदूर, हाजिरी, साइट खर्चा*).
-- **1-Tap JSON Backup & Restore:** Save your complete database to your phone storage and restore it anytime with zero data loss.
+- **☁️ Google Drive (Gmail Account) Cloud Backup (Default):**
+  - Connect your Gmail account with 1 click.
+  - **1-Click Cloud Backup:** Securely saves your site records to Google Drive.
+  - **1-Click Cloud Restore:** When switching devices or reinstalling the app, restore all your sites and wages with 1 click.
+  - **Auto-Backup:** Automatically syncs changes whenever daily wage entries are saved.
+- **📁 Local File Backup (.JSON):** 1-tap download of raw `.json` backup file for offline local archiving.
+
 
 ---
 

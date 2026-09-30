@@ -108,6 +108,14 @@ export interface AppSettings {
   companyName?: string;
   managerName?: string;
   managerPhone?: string;
+  // Google Drive Cloud Backup
+  backupDestination?: 'google_drive' | 'local_storage';
+  googleAccountEmail?: string;
+  googleAccountName?: string;
+  lastGoogleBackupTimestamp?: number;
+  lastGoogleBackupSize?: number;
+  autoGoogleBackup?: boolean;
 }
 
 export type TabType = 'daily-wage' | 'roster' | 'petty-cash' | 'reports' | 'sites' | 'settings';
+

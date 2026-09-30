@@ -14,7 +14,7 @@ export interface BackupData {
   settings: any[];
 }
 
-export async function exportFullDatabaseBackup(): Promise<string> {
+export async function getDatabaseBackupJsonString(): Promise<{ jsonString: string; backupData: BackupData; sizeBytes: number }> {
   const [
     sites,
     contractors,
@@ -33,7 +33,7 @@ export async function exportFullDatabaseBackup(): Promise<string> {
     db.settings.toArray(),
   ]);
 
-  const backup: BackupData = {
+  const backupData: BackupData = {
     version: 1,
     exportedAt: Date.now(),
     dateString: getTodayString(),
@@ -46,9 +46,16 @@ export async function exportFullDatabaseBackup(): Promise<string> {
     settings,
   };
 
-  const jsonString = JSON.stringify(backup, null, 2);
+  const jsonString = JSON.stringify(backupData, null, 2);
+  const sizeBytes = new Blob([jsonString]).size;
+  return { jsonString, backupData, sizeBytes };
+}
+
+export async function exportFullDatabaseBackup(): Promise<string> {
+  const { jsonString } = await getDatabaseBackupJsonString();
   const blob = new Blob([jsonString], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
+
 
   const a = document.createElement('a');
   a.href = url;

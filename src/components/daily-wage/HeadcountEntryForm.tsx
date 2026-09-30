@@ -24,7 +24,9 @@ import {
 } from '../../utils/wageCalculator';
 import { formatINR, getTodayString, formatDateDisplay, formatDateDMY } from '../../utils/formatters';
 import { useActiveSite, useAppSettings } from '../../db/hooks';
+import { uploadBackupToGoogleDrive } from '../../services/googleDriveBackup';
 import { db } from '../../db';
+
 
 interface HeadcountEntryFormProps {
   siteId: string;
@@ -225,9 +227,15 @@ export const HeadcountEntryForm: React.FC<HeadcountEntryFormProps> = ({
       }
 
       if (onEntrySaved) onEntrySaved();
+
+      // Silent background cloud auto-backup if connected & enabled
+      if (settings?.autoGoogleBackup && settings?.googleAccountEmail) {
+        uploadBackupToGoogleDrive().catch(() => {});
+      }
     } catch (err) {
       console.error('Failed to save entry:', err);
       setValidationError('Failed to save wage entry to local database.');
+
     } finally {
       setIsSaving(false);
     }

@@ -30,14 +30,29 @@ export async function initializeDefaultData(): Promise<void> {
       theme: 'light',
       currencySymbol: '₹',
       standardShiftHours: 8,
+      backupDestination: 'google_drive',
+      autoGoogleBackup: true,
     };
     await db.settings.add(defaultSettings);
   } else {
-    // Ensure default is 8 hours if needed
+    // Ensure default is 8 hours and has backup defaults
     const existing = await db.settings.get('global_settings');
-    if (existing && existing.standardShiftHours !== 8 && existing.standardShiftHours !== 9) {
-      await db.settings.update('global_settings', { standardShiftHours: 8 });
+    if (existing) {
+      const updates: Partial<AppSettings> = {};
+      if (existing.standardShiftHours !== 8 && existing.standardShiftHours !== 9) {
+        updates.standardShiftHours = 8;
+      }
+      if (!existing.backupDestination) {
+        updates.backupDestination = 'google_drive';
+      }
+      if (existing.autoGoogleBackup === undefined) {
+        updates.autoGoogleBackup = true;
+      }
+      if (Object.keys(updates).length > 0) {
+        await db.settings.update('global_settings', updates);
+      }
     }
   }
 }
+
 

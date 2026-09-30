@@ -86,8 +86,22 @@
     "title": "Backup & Data Safety",
     "export_backup": "Export Backup (.JSON)",
     "restore_backup": "Restore from Backup File",
-    "backup_desc": "Safeguard your data to phone Downloads or Google Drive before changing devices.",
+    "backup_desc": "Safeguard your data to Google Drive (Gmail) or local storage to prevent any data loss.",
     "restore_success": "Data restored successfully!",
-    "restore_warning": "Restoring will update your local database."
+    "restore_warning": "Restoring will replace existing records with the backup file.",
+    "google_drive_tab": "Google Drive (Gmail)",
+    "local_storage_tab": "Local Storage (.JSON)",
+    "google_account": "Google / Gmail Account",
+    "connect_google": "Connect Gmail Account",
+    "change_account": "Change",
+    "backup_now_gdrive": "Back Up Now to Google Drive",
+    "restore_now_gdrive": "Restore from Google Drive",
+    "last_gdrive_backup": "Last Cloud Backup",
+    "auto_backup_label": "Auto-backup on daily wage save",
+    "auto_backup_desc": "Automatically keeps a copy on your Google Drive whenever entries are saved.",
+    "no_cloud_backup": "No cloud backup found yet. Click Back Up Now to create your first cloud copy.",
+    "cloud_backup_success": "Backed up to Google Drive successfully!",
+    "cloud_restore_success": "Restored all sites and wages from Google Drive successfully!"
   }
 }
+
