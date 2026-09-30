@@ -1,0 +1,93 @@
+{
+  "app": {
+    "title": "लेबर मैनेजर प्रो",
+    "tagline": "ऑफलाइन कंस्ट्रक्शन मजदूरी लेजर",
+    "offline_badge": "100% ऑफलाइन"
+  },
+  "nav": {
+    "daily_wages": "दैनिक मजदूरी",
+    "roster": "हाजिरी (Muster)",
+    "expenses": "साइट खर्चा",
+    "reports": "रिपोर्ट और बिल",
+    "sites": "साइट्स"
+  },
+  "site": {
+    "select_site": "एक्टिव साइट चुनें",
+    "add_new_site": "नई साइट जोड़ें",
+    "site_name": "साइट / प्रोजेक्ट का नाम",
+    "site_location": "लोकेशन / पता",
+    "client_name": "मालिक / क्लाइंट का नाम",
+    "status_active": "चालू (Active)",
+    "status_completed": "पूर्ण (Completed)"
+  },
+  "wage": {
+    "mesan": "कारीगर (मिस्त्री)",
+    "helper": "मजदूर (हेल्पर)",
+    "custom": "अन्य कामगार",
+    "add_mesan_group": "+ मिस्त्री ग्रुप जोड़ें",
+    "add_helper_group": "+ मजदूर ग्रुप जोड़ें",
+    "add_custom_group": "+ कामगार ग्रुप जोड़ें",
+    "group": "ग्रुप",
+    "workers_count": "मजदूरों की संख्या",
+    "day_rate": "दैनिक रेट (₹)",
+    "ot_workers": "OT मजदूर",
+    "ot_hours": "OT घंटे",
+    "hourly_ot_rate": "OT रेट/घंटा",
+    "group_total": "ग्रुप कुल रकम",
+    "total_workers": "कुल मजदूर",
+    "day_total": "आज की कुल मजदूरी",
+    "save_entry": "आज का लेजर सेव करें",
+    "entry_saved": "दैनिक मजदूरी सफलतापूर्वक सेव हो गई!",
+    "no_entries_today": "इस तारीख का कोई रिकॉर्ड नहीं मिला।",
+    "entries_for_date": "इस तारीख के सेव किए गए लेजर",
+    "delete_confirm": "क्या आप इस एंट्री को डिलीट करना चाहते हैं?",
+    "ot_clamped_warning": "OT करने वाले मजदूर ग्रुप के कुल मजदूरों से ज्यादा नहीं हो सकते।"
+  },
+  "roster": {
+    "title": "कामगार हाजिरी रजिस्टर",
+    "search_placeholder": "कामगार का नाम खोजें...",
+    "add_worker": "+ नया कामगार जोड़ें",
+    "mark_all_present": "सभी को उपस्थित मार्क करें",
+    "present": "पूरी हाजिरी (P)",
+    "half_day": "आधी (HD)",
+    "absent": "अनुपस्थित (A)",
+    "ot": "OT",
+    "hours": "घंटे",
+    "day_wage": "आज की कमाई"
+  },
+  "expense": {
+    "title": "साइट खर्चा (पेट्टी कैश)",
+    "add_expense": "साइट खर्चा जोड़ें",
+    "amount": "रकम (₹)",
+    "category": "केटेगरी",
+    "description": "खर्चे का विवरण (जैसे: 5 बोरी सीमेंट, चाय-नाश्ता, भाड़ा)",
+    "payment_mode": "पेमेंट मोड",
+    "cash": "नकद (Cash)",
+    "upi": "UPI / ऑनलाइन",
+    "save_expense": "खर्चा सेव करें",
+    "daily_expense_total": "आज का कुल खर्चा"
+  },
+  "reports": {
+    "title": "रिपोर्ट और बिलिंग",
+    "today": "आज",
+    "this_week": "इस हफ्ते",
+    "this_month": "इस महीने",
+    "custom": "कस्टम तारीख",
+    "total_labour": "कुल लेबर मजदूरी",
+    "total_ot_hours": "कुल OT घंटे",
+    "total_expenses": "कुल साइट खर्चा",
+    "grand_total": "साइट का कुल खर्च",
+    "share_whatsapp": "व्हाट्सएप पर बिल भेजें",
+    "download_pdf": "PDF मस्टर रोल डाउनलोड करें",
+    "export_excel": "एक्सेल (.xlsx) डाउनलोड करें",
+    "generating": "रिपोर्ट बन रही है..."
+  },
+  "backup": {
+    "title": "डाटा सुरक्षा और बैकअप",
+    "export_backup": "बैकअप फाइल (.JSON) डाउनलोड करें",
+    "restore_backup": "बैकअप फाइल से रिस्टोर करें",
+    "backup_desc": "फोन बदलने या ऐप अपडेट से पहले अपना बैकअप फोन स्टोरेज या गूगल ड्राइव पर जरूर सेव करें।",
+    "restore_success": "डाटा सफलतापूर्वक रिस्टोर हो गया!",
+    "restore_warning": "रिस्टोर करने से पुराना डाटा अपडेट हो जाएगा।"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "app": {
+    "title": "Labour Manager Pro",
+    "tagline": "Offline Construction Wage Ledger",
+    "offline_badge": "100% Offline"
+  },
+  "nav": {
+    "daily_wages": "Daily Wages",
+    "roster": "Attendance",
+    "expenses": "Site Kharcha",
+    "reports": "Reports & Bills",
+    "sites": "Sites"
+  },
+  "site": {
+    "select_site": "Select Active Site",
+    "add_new_site": "Add New Site",
+    "site_name": "Site / Project Name",
+    "site_location": "Location",
+    "client_name": "Client / Owner Name",
+    "status_active": "Active",
+    "status_completed": "Completed"
+  },
+  "wage": {
+    "mesan": "Mesan (Mistri)",
+    "helper": "Helper (Mazdoor)",
+    "custom": "Other Trade",
+    "add_mesan_group": "+ Add Mesan Group",
+    "add_helper_group": "+ Add Helper Group",
+    "add_custom_group": "+ Add Trade Group",
+    "group": "Group",
+    "workers_count": "Workers Count",
+    "day_rate": "Day Rate (₹)",
+    "ot_workers": "OT Workers",
+    "ot_hours": "OT Hours",
+    "hourly_ot_rate": "OT Rate/Hr",
+    "group_total": "Group Total",
+    "total_workers": "Total Workers",
+    "day_total": "Day Wage Total",
+    "save_entry": "Save Daily Ledger",
+    "entry_saved": "Daily wage entry saved successfully!",
+    "no_entries_today": "No wage entries recorded for this date.",
+    "entries_for_date": "Saved Entries for Date",
+    "delete_confirm": "Delete this entry?",
+    "ot_clamped_warning": "OT workers cannot exceed total group workers."
+  },
+  "roster": {
+    "title": "Worker Muster Roll",
+    "search_placeholder": "Search worker name...",
+    "add_worker": "+ Add Worker",
+    "mark_all_present": "Mark All Present",
+    "present": "Present",
+    "half_day": "Half (HD)",
+    "absent": "Absent",
+    "ot": "OT",
+    "hours": "hrs",
+    "day_wage": "Day Wage"
+  },
+  "expense": {
+    "title": "Site Kharcha (Petty Cash)",
+    "add_expense": "Add Site Expense",
+    "amount": "Amount (₹)",
+    "category": "Category",
+    "description": "Item Description (e.g., 5 bags cement, tea/snacks)",
+    "payment_mode": "Payment Mode",
+    "cash": "Cash",
+    "upi": "UPI / Online",
+    "save_expense": "Save Expense",
+    "daily_expense_total": "Day Kharcha Total"
+  },
+  "reports": {
+    "title": "Reports & Billing",
+    "today": "Today",
+    "this_week": "This Week",
+    "this_month": "This Month",
+    "custom": "Custom Range",
+    "total_labour": "Total Labour Wages",
+    "total_ot_hours": "Total OT Hours Logged",
+    "total_expenses": "Total Site Kharcha",
+    "grand_total": "Grand Total Expenditure",
+    "share_whatsapp": "Share Bill on WhatsApp",
+    "download_pdf": "Download PDF Muster Roll",
+    "export_excel": "Export Excel (.xlsx)",
+    "generating": "Generating Report..."
+  },
+  "backup": {
+    "title": "Backup & Data Safety",
+    "export_backup": "Export Backup (.JSON)",
+    "restore_backup": "Restore from Backup File",
+    "backup_desc": "Safeguard your data to phone Downloads or Google Drive before changing devices.",
+    "restore_success": "Data restored successfully!",
+    "restore_warning": "Restoring will update your local database."
+  }
+}
