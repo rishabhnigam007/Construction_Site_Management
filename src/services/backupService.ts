@@ -1,7 +1,9 @@
 import { db } from '../db';
 import { getTodayString } from '../utils/formatters';
+import { saveAndShareJson } from '../utils/fileDownloader';
 
 export interface BackupData {
+
   version: number;
   exportedAt: number;
   dateString: string;
@@ -53,20 +55,10 @@ export async function getDatabaseBackupJsonString(): Promise<{ jsonString: strin
 
 export async function exportFullDatabaseBackup(): Promise<string> {
   const { jsonString } = await getDatabaseBackupJsonString();
-  const blob = new Blob([jsonString], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-
-
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `LabourManager_Pro_Backup_${getTodayString()}.json`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-
-  return a.download;
+  const filename = `LabourManager_Pro_Backup_${getTodayString()}.json`;
+  return await saveAndShareJson(jsonString, filename);
 }
+
 
 export async function restoreDatabaseFromJson(jsonString: string): Promise<boolean> {
   try {

@@ -2,6 +2,7 @@ import * as XLSX from 'xlsx';
 import { Site, HeadcountEntry, PettyExpense } from '../types';
 import { calculateRateGroupTotals } from '../utils/wageCalculator';
 import { formatDateDMY } from '../utils/formatters';
+import { saveAndShareExcel } from '../utils/fileDownloader';
 
 export interface ExportExcelOptions {
   site: Site | undefined;
@@ -11,6 +12,7 @@ export interface ExportExcelOptions {
   expenses?: PettyExpense[];
   shiftHours?: number;
 }
+
 
 export interface AttendanceMatrixData {
   rates: number[];
@@ -102,15 +104,16 @@ export function buildAttendanceMatrixData(
   };
 }
 
-export function exportToExcelFile({
+export async function exportToExcelFile({
   site,
   startDate,
   endDate,
   headcountEntries,
   expenses = [],
   shiftHours = 8,
-}: ExportExcelOptions) {
+}: ExportExcelOptions): Promise<void> {
   const wb = XLSX.utils.book_new();
+
 
   // 1. Build Attendance Matrix Sheet (Exact contractor layout matching Image 2)
   const matrix = buildAttendanceMatrixData(headcountEntries, shiftHours);
@@ -221,8 +224,9 @@ export function exportToExcelFile({
     XLSX.utils.book_append_sheet(wb, wsExpenses, 'Site_Expenses');
   }
 
-  // Generate and download
+  // Generate and download / share natively
   const siteSlug = (site?.name || 'Site').replace(/[^a-zA-Z0-9]/g, '_');
   const filename = `Attendance_Matrix_${siteSlug}_${startDate}_to_${endDate}.xlsx`;
-  XLSX.writeFile(wb, filename);
+  await saveAndShareExcel(wb, filename);
 }
+

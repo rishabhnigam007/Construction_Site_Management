@@ -72,7 +72,7 @@ export const EntrySubmittedModal: React.FC<EntrySubmittedModalProps> = ({
     openWhatsAppWithMessage(whatsappText);
   };
 
-  const handleExportExcel = () => {
+  const handleExportExcel = async () => {
     const tempEntry: HeadcountEntry = {
       id: `temp_${Date.now()}`,
       siteId: site?.id || 'site_default_01',
@@ -86,7 +86,7 @@ export const EntrySubmittedModal: React.FC<EntrySubmittedModalProps> = ({
       updatedAt: Date.now(),
     };
 
-    exportToExcelFile({
+    await exportToExcelFile({
       site,
       startDate: date,
       endDate: date,
@@ -94,6 +94,7 @@ export const EntrySubmittedModal: React.FC<EntrySubmittedModalProps> = ({
       shiftHours,
     });
   };
+
 
   // Matrix preview values
   const uniqueRates = Array.from(

@@ -7,8 +7,10 @@ import { AddWorkerModal } from './AddWorkerModal';
 import { formatINR, formatDateDMY } from '../../utils/formatters';
 import { calculateWorkerWage } from '../../utils/wageCalculator';
 import { generateMusterRollPDF } from '../../services/pdfGenerator';
+import { saveAndSharePdf } from '../../utils/fileDownloader';
 import { useActiveSite } from '../../db/hooks';
 import { db } from '../../db';
+
 
 interface WorkerAttendanceListProps {
   siteId: string;
@@ -105,7 +107,7 @@ export const WorkerAttendanceList: React.FC<WorkerAttendanceListProps> = ({
     }
   };
 
-  const handleDownloadMusterPDF = () => {
+  const handleDownloadMusterPDF = async () => {
     try {
       const doc = generateMusterRollPDF({
         site: activeSite,
@@ -114,13 +116,15 @@ export const WorkerAttendanceList: React.FC<WorkerAttendanceListProps> = ({
         attendanceList,
       });
       const siteSlug = (activeSite?.name || 'Site').replace(/[^a-zA-Z0-9]/g, '_');
-      doc.save(`Staff_MusterRoll_${siteSlug}_${selectedDate}.pdf`);
-      setStatusMsg('Staff Muster Roll PDF downloaded successfully!');
+      const filename = `Staff_MusterRoll_${siteSlug}_${selectedDate}.pdf`;
+      await saveAndSharePdf(doc, filename);
+      setStatusMsg('Staff Muster Roll PDF generated successfully!');
       setTimeout(() => setStatusMsg(null), 3500);
     } catch (err) {
-      console.error(err);
+      console.error('Failed to export Muster Roll PDF:', err);
     }
   };
+
 
   const totalWage = attendanceList.reduce((acc, curr) => acc + (curr.calculatedWage || 0), 0);
   const presentCount = attendanceList.filter((a) => a.status === 'full' || a.status === 'half').length;

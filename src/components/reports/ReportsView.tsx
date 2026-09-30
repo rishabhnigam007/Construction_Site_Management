@@ -19,6 +19,8 @@ import { Site, HeadcountEntry, PettyExpense } from '../../types';
 import { formatINR, getTodayString, addDaysToDateString, formatDateDMY } from '../../utils/formatters';
 import { generateLabourReportPDF } from '../../services/pdfGenerator';
 import { exportToExcelFile, buildAttendanceMatrixData } from '../../services/excelExporter';
+import { saveAndSharePdf } from '../../utils/fileDownloader';
+
 import {
   formatPeriodAttendanceWhatsApp,
   openWhatsAppWithMessage,
@@ -112,7 +114,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ activeSite }) => {
     shiftHours
   );
 
-  const handleDownloadPDF = () => {
+  const handleDownloadPDF = async () => {
     setIsExporting(true);
     try {
       const doc = generateLabourReportPDF({
@@ -124,11 +126,12 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ activeSite }) => {
         shiftHours,
       });
       const siteSlug = (activeSite?.name || 'Site').replace(/[^a-zA-Z0-9]/g, '_');
-      doc.save(`LabourReport_${siteSlug}_${startDate}_to_${endDate}.pdf`);
-      setSuccessMsg('PDF Report downloaded successfully!');
+      const filename = `LabourReport_${siteSlug}_${startDate}_to_${endDate}.pdf`;
+      await saveAndSharePdf(doc, filename);
+      setSuccessMsg('PDF Report generated successfully!');
       setTimeout(() => setSuccessMsg(null), 3500);
     } catch (err) {
-      console.error(err);
+      console.error('Failed to export PDF:', err);
     } finally {
       setIsExporting(false);
     }
@@ -146,10 +149,10 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ activeSite }) => {
     }
   };
 
-  const handleExportExcel = () => {
+  const handleExportExcel = async () => {
     setIsExporting(true);
     try {
-      exportToExcelFile({
+      await exportToExcelFile({
         site: activeSite,
         startDate,
         endDate,
@@ -160,11 +163,12 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ activeSite }) => {
       setSuccessMsg('Attendance Matrix (.xlsx) file exported successfully!');
       setTimeout(() => setSuccessMsg(null), 3500);
     } catch (err) {
-      console.error(err);
+      console.error('Failed to export Excel:', err);
     } finally {
       setIsExporting(false);
     }
   };
+
 
   return (
     <div className="space-y-4 pb-28">
